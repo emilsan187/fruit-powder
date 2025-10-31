@@ -2,7 +2,7 @@
 
 /* Farben und Tokens — HOLY-like Anpassung */
 :root{
-  --bg: rgba(255,255,255,0.6);
+  --bg: rgba(255, 255, 255, 0.6);
   --section-bg: linear-gradient(135deg, rgba(255,212,0,0.06) 0%, rgba(255,77,146,0.04) 100%);
   --card-bg: rgba(255,255,255,0.8);
   --text: #071014;
@@ -552,12 +552,13 @@ h1{
   top: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   width: 100%;
   z-index: 100;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
 }
 
 .cart-overlay.show {
