@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emil's Getränkepulver - Products</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    </head>
+    <body>
+      <div class="promo-bar">Gratis Versand ab 49€</div>
+
+      <header class="site-header">
+        <div class="container header-inner">
+          <a class="brand" href="index.html">
+            <div class="brand-mark">E</div>
+            <div class="brand-text">
+              <div class="brand-name">Emil's</div>
+              <div class="brand-sub">Getränkepulver</div>
+            </div>
+          </a>
+
+          <nav class="main-nav">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link active" href="products.html">Products</a>
+            <a class="nav-link" href="contact.html">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <div class="container">
+          <h1>Unsere Produkte</h1>
+          <p class="muted">Finde dein Lieblingspulver — natürlich und lecker.</p>
+          
+          <div class="controls">
+            <input type="search" id="searchInput" placeholder="Sorte suchen..." />
+          </div>
+
+          <div id="productsGrid" class="product-grid">
+            <!-- Produkte werden via JS eingefügt -->
+          </div>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <div>© <strong>Emil's Getränkepulver</strong></div>
+          <div class="small muted">Folge uns: <a class="link" href="#">Instagram</a></div>
+        </div>
+      </footer>
+
+      <script>
+        function renderAllProducts(containerId, searchQuery = '') {
+          const container = document.getElementById(containerId);
+          if (!container) return;
+
+          // Alle Produkte filtern wenn Suchbegriff vorhanden
+          let products = [...PRODUCTS];
+          if (searchQuery) {
+            const query = searchQuery.toLowerCase();
+            products = products.filter(p => 
+              p.name.toLowerCase().includes(query) || 
+              p.description.toLowerCase().includes(query)
+            );
+          }
+
+          // Priorisiere: zuerst neue und beliebte Produkte, dann der Rest
+          products.sort((a, b) => {
+            const score = p => (p.isNew ? 2 : 0) + (p.featured ? 1 : 0);
+            return score(b) - score(a);
+          });
+
+          // Container leeren und Produkte rendern (priorisierte Karten bekommen zusätzlich die .priority Klasse)
+          container.innerHTML = products.map(product => `
+            <article class="card product ${product.isNew || product.featured ? 'priority' : ''}" data-id="${product.id}">
+              <div class="product-image" style="background-image: linear-gradient(45deg, ${product.gradient[0]}, ${product.gradient[1]});">
+                ${product.isNew ? '<div class="product-badge-top new">Neu</div>' : ''}
+                ${product.featured ? '<div class="product-badge-top featured">Beliebt</div>' : ''}
+                <img src="${product.image}" alt="${product.name}" loading="lazy">
+              </div>
+              <div class="product-content">
+                <div class="product-header">
+                  <h3>${product.name}</h3>
+                  <div class="price">${product.price.toFixed(2)}€</div>
+                </div>
+                <p class="muted">${product.description}</p>
+                <p class="small">${product.details}</p>
+                <div class="tags">
+                  ${product.features.map(f => `<span class="tag">${f}</span>`).join('')}
+                </div>
+                <div class="product-meta">
+                  <span class="size">${product.size}</span>
+                  <span class="servings">${product.servings} Portionen</span>
+                </div>
+                <button class="btn btn-primary buy-button" onclick="addToCart('${product.id}')">
+                  In den Warenkorb
+                </button>
+              </div>
+            </article>
+          `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          // Initial alle Produkte rendern
+          renderAllProducts('productsGrid');
+
+          // Suchfunktion einrichten
+          const searchInput = document.getElementById('searchInput');
+          if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+              renderAllProducts('productsGrid', e.target.value);
+            });
+          }
+        });
+      </script>
+    </body>
+</html>

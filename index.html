@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emil's Getränkepulver</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div class="promo-bar">Jetzt neu: Gratis Versand ab 49€ • Nur kurze Zeit</div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <div class="brand-mark">E</div>
+          <div class="brand-text">
+            <div class="brand-name">Emil's</div>
+            <div class="brand-sub">Getränkepulver</div>
+          </div>
+        </a>
+
+        <nav class="main-nav">
+          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="products.html">Products</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-left">
+            <div class="pill">Fruchtig & Knallig</div>
+            <h1>Welcome to Emil's Getränkepulver</h1>
+            <p class="lead">Entdecke unsere leckeren, zuckerarmen Pulver für Drinks, Shakes und mehr — natürlich, bunt, lecker.</p>
+
+            <div class="hero-ctas">
+              <a href="products.html" class="btn btn-primary">Unsere Sorten</a>
+              <a href="contact.html" class="btn btn-outline">Kontakt</a>
+            </div>
+          </div>
+
+          
+        </div>
+      </section>
+
+      <section class="section preview">
+        <div class="container">
+          <div class="section-head">
+            <h2>Unsere Produkte</h2>
+          </div>
+
+          <div id="productGrid" class="product-grid">
+            <!-- Produkte werden via JS eingefügt -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© <strong>Emil's Getränkepulver</strong></div>
+        <div class="small muted">Folge uns: <a class="link" href="#">Instagram</a></div>
+      </div>
+    </footer>
+    <script>
+      // Fülle das Hero-Produkt mit dem ersten featured Produkt (Bestseller). Falls keines vorhanden, verwende das erste Produkt.
+      (function(){
+        try {
+          const heroEl = document.getElementById('heroProduct');
+          if (!heroEl || typeof PRODUCTS === 'undefined') return;
+          const featured = PRODUCTS.find(p => p.featured) || PRODUCTS[0];
+          if (!featured) return;
+
+          // Update swatch/bg
+          const swatch = heroEl.querySelector('.hero-swatch');
+          if (swatch) swatch.style.background = `linear-gradient(135deg, ${featured.gradient[0]}, ${featured.gradient[1]})`;
+
+          // Badge
+          const badge = heroEl.querySelector('.product-badge-top');
+          if (badge) badge.textContent = featured.isNew ? 'Neu' : 'Bestseller';
+
+          // Title & desc
+          const title = heroEl.querySelector('.hero-product-title');
+          if (title) title.textContent = featured.name;
+          const desc = heroEl.querySelector('.hero-product-desc');
+          if (desc) desc.textContent = featured.description;
+
+          // CTA link
+          const btn = document.getElementById('heroProductBtn');
+          if (btn) btn.href = `products.html#${featured.id}`;
+        } catch (e) {
+          console.warn('Hero product script error', e);
+        }
+      })();
+    </script>
+  </body>
+</html>
