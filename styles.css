@@ -882,3 +882,37 @@ button:hover, .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(255,77,146,0.25);
 }
+
+details {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 16px 24px;
+  box-shadow: var(--shadow);
+  margin-top: 24px;
+}
+details summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+details[open] summary {
+  margin-bottom: 12px;
+}
+details p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.cat-sticker {
+  width: 150px;
+  height: auto;
+  margin-top: 12px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+.stickers {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* End of styles.css */
