@@ -303,8 +303,14 @@ document.addEventListener('DOMContentLoaded', () => {
 // Inserts a single large featured product under the site header on every page
 function insertFeaturedHero() {
   if (typeof PRODUCTS === 'undefined') return;
-  // Skip on contact page
-  if (window.location.pathname.includes('contact.html')) return;
+  // Skip on contact page (handle GitHub Pages URLs with or without .html)
+  try {
+    const path = (window.location.pathname || '').toLowerCase();
+    // matches '/contact', '/contact.html', '/repo/contact', '/repo/contact.html', etc.
+    if ((/(^|\/)contact(\.html)?(\/|$)/i).test(path)) return;
+  } catch (e) {
+    // if anything goes wrong, don't block hero insertion
+  }
 
   // find a product: prefer featured, then new, then first
   const pick = PRODUCTS.find(p => p.featured) || PRODUCTS.find(p => p.isNew) || PRODUCTS[0];

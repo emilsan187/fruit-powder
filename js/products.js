@@ -1262,36 +1262,6 @@ const PRODUCTS = [
   isNew: false
 },
 {
-  id: "peach-passion",
-  name: "Peach Passion",
-  description: "Saftiger Pfirsich mit tropischer Passionsfrucht.",
-  details: "Süßer Pfirsich vereint mit exotischer Passion für intensiven Geschmack",
-  category: "exotic",
-  price: 14.49,
-  size: "400g",
-  servings: 20,
-  features: ["Ohne Zucker", "Vegan", "Natürliche Aromen"],
-  image: "https://placehold.co/400x400/FFDAB9/ffffff?text=Peach+Passion",
-  gradient: ["#FFDAB9", "#FF69B4"],
-  featured: false,
-  isNew: false
-},
-{
-  id: "lemon-ginger",
-  name: "Lemon Ginger",
-  description: "Zitrone und Ingwer für maximale Frische und Immunboost.",
-  details: "Scharfer Ingwer trifft auf erfrischende Zitrone für einen Energie-Kick",
-  category: "immunity",
-  price: 13.99,
-  size: "400g",
-  servings: 20,
-  features: ["Ohne Zucker", "Vegan", "Mit Vitamin C", "Ingwer"],
-  image: "https://placehold.co/400x400/FFD700/ffffff?text=Lemon+Ginger",
-  gradient: ["#FFD700", "#FFA500"],
-  featured: false,
-  isNew: false
-},
-{
   id: "blueberry-pomegranate",
   name: "Blueberry Pomegranate",
   description: "Antioxidantien-Power: Blaubeeren mit Granatapfel.",
