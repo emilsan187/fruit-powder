@@ -303,6 +303,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // Inserts a single large featured product under the site header on every page
 function insertFeaturedHero() {
   if (typeof PRODUCTS === 'undefined') return;
+  // Skip on contact page
+  if (window.location.pathname.includes('contact.html')) return;
+
   // find a product: prefer featured, then new, then first
   const pick = PRODUCTS.find(p => p.featured) || PRODUCTS.find(p => p.isNew) || PRODUCTS[0];
   if (!pick) return;
