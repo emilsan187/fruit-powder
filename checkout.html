@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Checkout — Emil's Getränkepulver</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+      .checkout-wrap{padding:48px 32px}
+      .checkout-grid{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:start}
+      .order-summary{background:var(--card-bg);padding:24px;border-radius:16px}
+      .order-item{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+      .order-item img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+      .summary-total{display:flex;justify-content:space-between;font-weight:800;margin-top:12px}
+      .checkout-form{background:var(--card-bg);padding:24px;border-radius:16px}
+      .checkout-form .form-row{display:flex;gap:12px}
+      .checkout-form .form-row > *{flex:1}
+      .btn-primary.checkout-submit{width:100%;padding:14px 18px;margin-top:16px}
+      .thankyou{padding:36px;text-align:center}
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <div class="brand-mark">E</div>
+          <div class="brand-text">
+            <div class="brand-name">Emil's</div>
+            <div class="brand-sub">Getränkepulver</div>
+          </div>
+        </a>
+
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="products.html">Products</a>
+          <a class="nav-link active" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container checkout-wrap">
+        <h1>Zur Kasse</h1>
+        <div class="checkout-grid">
+          <div>
+            <div class="order-summary" id="orderSummary">
+              <h2>Ihre Bestellung</h2>
+              <div id="orderItems"> <!-- items rendered by JS --> </div>
+              <div class="summary-total"><span>Zwischensumme</span><span id="subtotal">0.00 €</span></div>
+              <div class="summary-total"><span>Versand</span><span id="shipping">0.00 €</span></div>
+              <div class="summary-total" style="font-size:1.15rem"><span>Gesamt</span><strong id="grandTotal">0.00 €</strong></div>
+            </div>
+
+            <div style="margin-top:20px;" class="checkout-form" id="paymentSection">
+              <h3>Kontakt & Versand</h3>
+              <form id="checkoutForm">
+                <div class="form-row">
+                  <input type="text" id="fullName" placeholder="Vollständiger Name" required>
+                  <input type="email" id="email" placeholder="E-Mail" required>
+                </div>
+                <div class="form-row" style="margin-top:12px">
+                  <input type="text" id="address" placeholder="Adresse" required>
+                </div>
+                <div style="margin-top:12px">
+                  <input type="text" id="city" placeholder="Stadt" required>
+                </div>
+                <div style="margin-top:12px">
+                  <input type="text" id="postal" placeholder="Postleitzahl" required>
+                </div>
+                <button class="btn btn-primary checkout-submit" type="submit">Zahlung abschließen</button>
+              </form>
+            </div>
+          </div>
+
+          <aside>
+            <div class="checkout-form">
+              <h3>Zusammenfassung</h3>
+              <p class="muted">Überprüfen Sie Ihre Bestellung und füllen Sie die Bestellinformationen aus.</p>
+              <div style="margin-top:12px">
+                <strong>Bezahlmethoden (Demo)</strong>
+                <ul class="muted">
+                  <li>Klarna / Sofort (Demo)</li>
+                  <li>Kreditkarte (Demo)</li>
+                  <li>PayPal (Demo)</li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© <strong>Emil's Getränkepulver</strong></div>
+        <div class="small muted">Folge uns: <a class="link" href="#">Instagram</a></div>
+      </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      // Checkout page script: render cart and handle form
+      function formatPrice(v){return v.toFixed(2) + ' €'}
+
+      function renderCheckout() {
+        const cart = JSON.parse(localStorage.getItem('cart') || '{}');
+        const itemsEl = document.getElementById('orderItems');
+        const subtotalEl = document.getElementById('subtotal');
+        const shippingEl = document.getElementById('shipping');
+        const grandEl = document.getElementById('grandTotal');
+
+        const entries = Object.entries(cart);
+        if (!entries.length) {
+          itemsEl.innerHTML = '<p class="cart-empty">Dein Warenkorb ist leer.</p>';
+          subtotalEl.textContent = '0.00 €';
+          grandEl.textContent = '0.00 €';
+          return;
+        }
+
+        let subtotal = 0;
+        itemsEl.innerHTML = entries.map(([id, qty]) => {
+          const p = PRODUCTS.find(x => x.id === id);
+          if (!p) return '';
+          const line = p.price * qty;
+          subtotal += line;
+          return `
+            <div class="order-item">
+              <img src="${p.image}" alt="${p.name}">
+              <div>
+                <div style="font-weight:800">${p.name} <small class="muted">×${qty}</small></div>
+                <div class="muted small">${p.description}</div>
+              </div>
+              <div style="margin-left:auto;font-weight:800">${line.toFixed(2)} €</div>
+            </div>`;
+        }).join('');
+
+        const shipping = subtotal > 0 && subtotal < 49 ? 3.99 : 0.00; // example rule
+        subtotalEl.textContent = formatPrice(subtotal);
+        shippingEl.textContent = formatPrice(shipping);
+        grandEl.textContent = formatPrice(subtotal + shipping);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        renderCheckout();
+
+        const form = document.getElementById('checkoutForm');
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          // simple validation
+          const name = document.getElementById('fullName').value.trim();
+          const email = document.getElementById('email').value.trim();
+          if (!name || !email) { alert('Bitte Name und E-Mail ausfüllen.'); return; }
+
+          // Simulate order submission
+          const order = {
+            id: 'order_' + Date.now(),
+            name, email,
+            cart: JSON.parse(localStorage.getItem('cart') || '{}'),
+            created: new Date().toISOString()
+          };
+
+          // In einer echten App hier POST an Server
+          console.log('Order (demo)', order);
+
+          // Clear cart and redirect to homepage with a thank-you payload
+          localStorage.removeItem('cart');
+          if (typeof updateCartDisplay === 'function') updateCartDisplay();
+
+          const payload = {
+            id: order.id,
+            name: order.name,
+            email: order.email,
+            message: 'Vielen Dank für deine Bestellung!'
+          };
+          try {
+            localStorage.setItem('orderThankYou', JSON.stringify(payload));
+          } catch (err) {
+            console.warn('Could not persist thank-you payload', err);
+          }
+
+          // Redirect back to the main page — index.html will read the payload and show a banner
+          window.location.href = 'index.html';
+        });
+      });
+    </script>
+  </body>
+</html>
