@@ -379,6 +379,7 @@ function showProductModal(productId) {
           <h3 class="product-modal-title">${p.name}</h3>
           <div class="product-modal-price">${p.price.toFixed(2)} €</div>
           <p class="muted">${p.description}</p>
+          <p class="muted">${p.details}</p>
           <div class="product-modal-tags">${p.features.map(f => `<span class="tag">${f}</span>`).join('')}</div>
           <div class="product-modal-actions">
             <button class="btn btn-primary modal-add" data-id="${p.id}">In den Warenkorb</button>
