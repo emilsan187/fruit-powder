@@ -192,5 +192,20 @@ const PRODUCTS = [
     gradient: ['#32CD32', '#ADFF2F'],
     featured: true,
     isNew: false
+  },
+  {
+    id: 'mango-passion',
+    name: 'Mango Passion',
+    description: 'Süße Mango mit exotischer Passionsfrucht.',
+    details: 'Reife Mangos kombiniert mit der tropischen Note der Passionsfrucht für ein intensives Geschmackserlebnis',
+    category: 'basics',
+    price: 16.99,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Reich an Vitaminen', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/FFD700/ffffff?text=Mango+Passion',
+    gradient: ['#FFD700', '#FFA500'],
+    featured: false,
+    isNew: true
   }
 ];
