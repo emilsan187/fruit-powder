@@ -207,5 +207,20 @@ const PRODUCTS = [
     gradient: ['#FFD700', '#FFA500'],
     featured: false,
     isNew: true
+  },
+  {
+    id: 'peach-ginger',
+    name: 'Peach Ginger',
+    description: 'Süßer Pfirsich mit würziger Ingwer-Note.',
+    details: 'Saftige Pfirsiche kombiniert mit der Schärfe von Ingwer für ein einzigartiges Geschmackserlebnis',
+    category: 'basics',
+    price: 15.49,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/FFB6C1/ffffff?text=Peach+Ginger',
+    gradient: ['#FFB6C1', '#FF69B4'],
+    featured: true,
+    isNew: false
   }
 ];
