@@ -222,5 +222,212 @@ const PRODUCTS = [
     gradient: ['#FFB6C1', '#FF69B4'],
     featured: true,
     isNew: false
+  },
+  
+  // === VITALITY SORTEN ===
+  {
+    id: 'energy-berries',
+    name: 'Energy Berries',
+    description: 'Power-Mix aus Acai, Goji und Guarana.',
+    details: 'Superfood Beeren mit natürlichem Energiekick für maximale Ausdauer',
+    category: 'vitality',
+    price: 17.99,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Mit Guarana', 'Natürliche Aromen', 'Vegan', 'Energiebooster'],
+    image: 'https://placehold.co/400x400/8B008B/ffffff?text=Energy+Berries',
+    gradient: ['#8B008B', '#FF1493'],
+    featured: true,
+    isNew: true
+  },
+  {
+    id: 'citrus-kick',
+    name: 'Citrus Kick',
+    description: 'Belebende Zitrusfrüchte mit Matcha-Extrakt.',
+    details: 'Frische Orangen, Zitronen und grüner Tee für nachhaltigen Energiekick',
+    category: 'vitality',
+    price: 16.49,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Mit Matcha', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/FFD700/ffffff?text=Citrus+Kick',
+    gradient: ['#FFD700', '#FF8C00'],
+    featured: false,
+    isNew: true
+  },
+  
+  // === WELLNESS SORTEN ===
+  {
+    id: 'calm-chamomile',
+    name: 'Calm Chamomile',
+    description: 'Beruhigendes Kamille mit Apfel und Honig.',
+    details: 'Sanfte Kamillenblüten mit süßem Apfel für innere Ruhe und Entspannung',
+    category: 'wellness',
+    price: 14.99,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Mit Kamillenblüten', 'Natürliche Aromen', 'Vegan', 'Beruhigend'],
+    image: 'https://placehold.co/400x400/F0E68C/ffffff?text=Calm+Chamomile',
+    gradient: ['#F0E68C', '#FFD700'],
+    featured: true,
+    isNew: true
+  },
+  {
+    id: 'turmeric-glow',
+    name: 'Turmeric Glow',
+    description: 'Goldene Kurkuma mit Kokos und schwarzem Pfeffer.',
+    details: 'Entzündungshemmende Kurkuma kombiniert mit Kokos für inneres Gleichgewicht',
+    category: 'wellness',
+    price: 18.99,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Mit Kurkuma', 'Natürliche Aromen', 'Vegan', 'Anti-entzündlich'],
+    image: 'https://placehold.co/400x400/FF8C00/ffffff?text=Turmeric+Glow',
+    gradient: ['#FF8C00', '#FFD700'],
+    featured: false,
+    isNew: true
+  },
+  
+  // === FOCUS SORTEN ===
+  {
+    id: 'brain-boost',
+    name: 'Brain Boost',
+    description: 'Konzentrations-Mix mit Blaubeere und Ginkgo.',
+    details: 'Unterstützt die Konzentration mit natürlichen Inhaltsstoffen für mentale Leistung',
+    category: 'focus',
+    price: 19.99,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Mit Ginkgo', 'Natürliche Aromen', 'Vegan', 'Konzentrationshilfe'],
+    image: 'https://placehold.co/400x400/4169E1/ffffff?text=Brain+Boost',
+    gradient: ['#4169E1', '#1E90FF'],
+    featured: true,
+    isNew: true
+  },
+  {
+    id: 'coffee-coconut',
+    name: 'Coffee Coconut',
+    description: 'Echter Kaffee mit cremiger Kokosnote.',
+    details: 'Hochwertige Arabica-Kaffeebohnen mit natürlichem Kokosfett für Fokus und Geschmack',
+    category: 'focus',
+    price: 15.99,
+    size: '400g',
+    servings: 16,
+    features: ['Ohne Zucker', 'Mit Kaffee', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/8B4513/ffffff?text=Coffee+Coconut',
+    gradient: ['#8B4513', '#D2691E'],
+    featured: false,
+    isNew: true
+  },
+  
+  // === IMMUNITY SORTEN ===
+  {
+    id: 'immune-shield',
+    name: 'Immune Shield',
+    description: 'Immunschutz mit Zink, Vitamin C und Holunder.',
+    details: 'Mit Holunderbeeren, Ingwer und Zink für ein starkes Immunsystem',
+    category: 'immunity',
+    price: 19.49,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Mit Zink', 'Mit Vitamin C', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/00CED1/ffffff?text=Immune+Shield',
+    gradient: ['#00CED1', '#20B2AA'],
+    featured: true,
+    isNew: true
+  },
+  {
+    id: 'ginger-lemon-boost',
+    name: 'Ginger Lemon Boost',
+    description: 'Klassisches Gesundheitsgetränk mit Ingwer und Zitrone.',
+    details: 'Probiertes Mittel für das Immunsystem mit frischem Zitronensaft und scharfem Ingwer',
+    category: 'immunity',
+    price: 13.99,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Mit Ingwer', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/FFFF00/ffffff?text=Ginger+Lemon',
+    gradient: ['#FFFF00', '#FFD700'],
+    featured: false,
+    isNew: true
+  },
+  
+  // === EXOTIC SORTEN ===
+  {
+    id: 'lychee-rose',
+    name: 'Lychee Rose',
+    description: 'Exotische Lychee mit feiner Rosennote.',
+    details: 'Süße Lychee-Früchte kombiniert mit zartem Rosenblüten-Aroma',
+    category: 'exotic',
+    price: 18.49,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Mit Rosenblüten', 'Natürliche Aromen', 'Vegan', 'Exotisch'],
+    image: 'https://placehold.co/400x400/FF69B4/ffffff?text=Lychee+Rose',
+    gradient: ['#FF69B4', '#FF1493'],
+    featured: true,
+    isNew: true
+  },
+  {
+    id: 'dragon-fruit-magic',
+    name: 'Dragon Fruit Magic',
+    description: 'Magische Drachenfrucht mit Limes und Kokosnuss.',
+    details: 'Das exotische Superfood für ein unvergessliches Geschmackserlebnis',
+    category: 'exotic',
+    price: 19.99,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Reich an Antioxidantien', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/FF00FF/ffffff?text=Dragon+Fruit',
+    gradient: ['#FF00FF', '#FF1493'],
+    featured: false,
+    isNew: true
+  },
+  {
+    id: 'guava-hibiscus',
+    name: 'Guava Hibiscus',
+    description: 'Tropische Guave mit blumiger Hibiskus-Note.',
+    details: 'Süßliche Guave-Früchte mit intensivem Hibiskus-Geschmack für tropisches Flair',
+    category: 'exotic',
+    price: 17.49,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Mit Hibiskus', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/FF6347/ffffff?text=Guava+Hibiscus',
+    gradient: ['#FF6347', '#FF69B4'],
+    featured: true,
+    isNew: true
+  },
+  
+  // === SEASONAL SORTEN ===
+  {
+    id: 'winter-spice',
+    name: 'Winter Spice',
+    description: 'Wärmender Mix aus Zimt, Nelke und Orange.',
+    details: 'Saisonale Spezialität mit traditionellen Winteraromen für gemütliche Stunden',
+    category: 'seasonal',
+    price: 15.99,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Mit Zimt & Nelken', 'Natürliche Aromen', 'Vegan', 'Wärmend'],
+    image: 'https://placehold.co/400x400/8B4513/ffffff?text=Winter+Spice',
+    gradient: ['#8B4513', '#D2691E'],
+    featured: false,
+    isNew: true
+  },
+  {
+    id: 'summer-mojito',
+    name: 'Summer Mojito',
+    description: 'Sommerliches Mojito-Getränk mit Limette und Minze.',
+    details: 'Erfrischende Sommererfrischung ohne Alkohol - perfekt für heiße Tage',
+    category: 'seasonal',
+    price: 14.49,
+    size: '400g',
+    servings: 20,
+    features: ['Ohne Zucker', 'Natürliche Aromen', 'Vegan', 'Erfrischend'],
+    image: 'https://placehold.co/400x400/00FF00/ffffff?text=Summer+Mojito',
+    gradient: ['#00FF00', '#20B2AA'],
+    featured: true,
+    isNew: true
   }
 ];
