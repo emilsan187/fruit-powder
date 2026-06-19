@@ -941,5 +941,96 @@ const PRODUCTS = [
     gradient: ['#4A0E2E', '#9370DB'],
     featured: false,
     isNew: false
+  },
+  // === ERGÄNZUNGEN AUS COMMUNITY WÜNSCHE & EXTRA REZEPTUREN ===
+  {
+    id: 'frozen-cranberry',
+    name: 'Frozen Cranberry',
+    description: 'Knackig herbe Cranberries schmelzen mit einer arktischen Brise Menthol zusammen.',
+    details: 'Eisige Beerenpower 🧊',
+    category: 'vitality', // Aufgrund des Fokus auf Frische/Kick eingeordnet
+    price: 12.49,
+    size: '400g',
+    servings: 40,
+    features: ['Ohne Zucker', 'Arktischer Menthol-Kick', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/9B111E/ffffff?text=Frozen+Cranberry',
+    gradient: ['#9B111E', '#FF0000'],
+    featured: false,
+    isNew: true
+  },
+  {
+    id: 'white-peach-tea',
+    name: 'White Peach Tea',
+    description: 'Klassisch weißer Tee, veredelt mit dem samtigen, dezenten Aroma heller Pfirsiche.',
+    details: 'Sanfter Teegenuss',
+    category: 'seasonal', // Passt perfekt zu den anderen Eistee-Varianten
+    price: 11.99,
+    size: '400g',
+    servings: 40,
+    features: ['Ohne Zucker', 'Echter Weißer Tee Extrakt', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/FAD6A5/ffffff?text=White+Peach+Tea',
+    gradient: ['#FAD6A5', '#FFA07A'],
+    featured: true,
+    isNew: true
+  },
+  {
+    id: 'cosmic-currant',
+    name: 'Cosmic Currant',
+    description: 'Tiefdunkle rote und schwarze Johannisbeeren, explodiert in einem süß-sauren Geschmackserlebnis.',
+    details: 'Supernova der Johannisbeere',
+    category: 'exotic', // "Cosmic/Supernova" passt optimal zu den ausgefallenen Erlebnissen
+    price: 11.49,
+    size: '400g',
+    servings: 40,
+    features: ['Ohne Zucker', 'Beeren-Explosion', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/5D0E3F/ffffff?text=Cosmic+Currant',
+    gradient: ['#5D0E3F', '#8B0085'],
+    featured: false,
+    isNew: true
+  },
+  {
+    id: 'double-melon',
+    name: 'Double Melon',
+    description: 'Saftige Wassermelone verschmilzt harmonisch mit der Honigsüße der Cantaloupe-Melone.',
+    details: 'Das Melonen-Duell 🍉',
+    category: 'basics', // Grundgeschmacksrichtung Melone, ähnlich wie Honeymelon
+    price: 12.99,
+    size: '400g',
+    servings: 40,
+    features: ['Ohne Zucker', 'Duo-Melonen-Extrakt', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/EC5A66/ffffff?text=Double+Melon',
+    gradient: ['#EC5A66', '#FFA07A'],
+    featured: true,
+    isNew: false
+  },
+  {
+    id: 'spiced-chai-latte',
+    name: 'Spiced Chai Latte',
+    description: 'Ein cremiges Dessert-Erlebnis aus indischem Schwarztee, Bourbon-Vanille und Zimt.',
+    details: 'Würziger Genuss',
+    category: 'relax', // Premium Dessert-Chai, optimal zum Entspannen
+    price: 14.49,
+    size: '300g', // Premium 30er Portionen (analog zu 10g/Portion = 300g Packung)
+    servings: 30,
+    features: ['Ohne Zucker', 'Bourbon-Vanille & Zimt', 'Cremige Textur', 'Vegan'],
+    image: 'https://placehold.co/400x400/C19A6B/ffffff?text=Spiced+Chai+Latte',
+    gradient: ['#C19A6B', '#8B4513'],
+    featured: false,
+    isNew: true
+  },
+  {
+    id: 'mystic-forest',
+    name: 'Mystic Forest',
+    description: 'Feine wilde Waldmeister-Note kombiniert mit der spritzigen Frische grüner Äpfel.',
+    details: 'Geheimnis des Waldes',
+    category: 'wellness', // Waldmeister/Kräuter-Touch, passt zur grünen Hydration
+    price: 10.99,
+    size: '400g',
+    servings: 40,
+    features: ['Ohne Zucker', 'Natürliches Waldmeister-Aroma', 'Natürliche Aromen', 'Vegan'],
+    image: 'https://placehold.co/400x400/4A7023/ffffff?text=Mystic+Forest',
+    gradient: ['#4A7023', '#228B22'],
+    featured: false,
+    isNew: true
   }
 ];
